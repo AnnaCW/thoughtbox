@@ -10,7 +10,7 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :url %>
-  <%= f.password_field :url %>
+  <%= f.text_field :url %>
 
   <%= f.submit "Submit Link" %>
 <% end %>
@@ -23,11 +23,11 @@
 
   <% if link.is_read %>
     <li>Mark As Unread
-      <input type="checkbox"/>
+      <input type="checkbox" class="status-box" value="false"/>
     </li>
   <% else %>
     <li>Mark As Read
-      <input type="checkbox"/>
+      <input type="checkbox" class="status-box" value="true"/>
     </li>
   <% end %>
 
