@@ -44,6 +44,7 @@ group :test do
   gem 'database_cleaner'
   gem "factory_girl_rails", "~> 4.0"
   gem 'launchy'
+  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

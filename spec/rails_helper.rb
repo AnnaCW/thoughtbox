@@ -9,6 +9,15 @@ require 'support/factory_girl'
 require 'database_cleaner'
 require 'support/database_cleaner'
 
+DatabaseCleaner.strategy = :truncation
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
