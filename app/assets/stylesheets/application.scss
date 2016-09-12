@@ -17,6 +17,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- .read-true {
+ .read {
    color: gray;
+ }
+
+ .unread {
+   color: red;
  }

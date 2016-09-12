@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
   $('.status-box').on('click', function() {
-    // console.log(this);
       var link = $(this).parents("div");
       var linkClass = $(this).parents("div").attr("class");
       var linkId = $(this).parents("div").attr("id");
@@ -15,6 +14,9 @@ $(document).ready(function(){
         data: data,
         success: function(updatedLink){
           console.log(linkClass);
+          $('.read').toggle("style");
+          $('.unread').toggle("style");
+          $('input:checkbox').removeAttr('checked');
         },
         error: function(xhr) {
          console.log(xhr.responseText);

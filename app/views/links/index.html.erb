@@ -17,19 +17,18 @@
 
 <ul>
 <% @links.each do |link| %>
-<div id='<%= link.id%>' class=read-'<%= link.read%>'>
+<div id='<%= link.id%>' class='<%= link.read%>'>
+
+  <h4 class="unread">Mark As Read
+    <input type="checkbox" class="status-box" value="false"/>
+  </h4>
+
+  <h4 class="read" style="display:none;">Mark As Unread
+    <input type="checkbox" class="status-box" value="true"/>
+  </h4>
+
   <li><%= link.title %></li>
   <li><%= link.url %></li>
-
-  <% if link.is_read %>
-    <li>Mark As Unread
-      <input type="checkbox" class="status-box" value="false"/>
-    </li>
-  <% else %>
-    <li>Mark As Read
-      <input type="checkbox" class="status-box" value="true"/>
-    </li>
-  <% end %>
 
   <li><%= link_to "Edit", edit_link_path(link) %></li>
 </div>
