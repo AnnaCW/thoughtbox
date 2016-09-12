@@ -3,3 +3,22 @@
 <% if current_user %>
   <%= link_to "Sign Out", logout_path, method: :delete %>
 <% end %>
+
+<h3>Submit New Link</h3>
+
+<%= form_for(:link, url: links_path) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :url %>
+  <%= f.password_field :url %>
+
+  <%= f.submit "Submit Link" %>
+<% end %>
+
+<ul>
+<% @links.each do |link| %>
+  <li><%= link.title %></li>
+  <li><%= link.url %></li>
+  <li><%= link.read %></li>
+<% end %>
+</ul>
