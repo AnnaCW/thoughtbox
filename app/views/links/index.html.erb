@@ -17,8 +17,11 @@
 
 <ul>
 <% @links.each do |link| %>
+<div id='<%= link.id%>'>
   <li><%= link.title %></li>
   <li><%= link.url %></li>
   <li><%= link.read %></li>
+  <li><%= link_to "Edit", edit_link_path(link) %></li>
+</div>
 <% end %>
 </ul>
