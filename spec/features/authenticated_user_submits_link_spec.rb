@@ -8,10 +8,10 @@ feature "authenticated user submits link" do
     visit links_path
 
     fill_in "Title", with: "NYT"
-    fill_in "Url", with: "www.nytimes.com"
+    fill_in "Url", with: "https://www.nytimes.com"
     click_on "Submit Link"
 
     expect(page).to have_content "NYT"
-    expect(page).to have_content "www.nytimes.com"
+    expect(page).to have_content "https://www.nytimes.com"
   end
 end

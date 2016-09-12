@@ -10,7 +10,7 @@ FactoryGirl.define do
 
   factory :link do
     title
-    url "www.google.com"
+    url "https://www.google.com"
     user_id 1
   end
 

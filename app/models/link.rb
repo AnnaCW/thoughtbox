@@ -1,5 +1,6 @@
 class Link < ApplicationRecord
   belongs_to :user
+  validates :url, presence: true, url: true
 
   def is_read
     read == true

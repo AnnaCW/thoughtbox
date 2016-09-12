@@ -15,13 +15,13 @@ feature "authenticated user edits link" do
     expect(page).to have_content("Edit Link")
 
     fill_in "Title", with: "Updated Title"
-    fill_in "Url", with: "www.google.com"
+    fill_in "Url", with: "https://www.google.com"
     click_on "Update"
 
     expect(current_path).to eq(links_path)
 
     expect(page).to have_content "Updated Title"
-    expect(page).to have_content "www.google.com"
+    expect(page).to have_content "https://www.google.com"
 
   end
 end
