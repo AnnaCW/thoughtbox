@@ -13,9 +13,8 @@ $(document).ready(function(){
         dataType: "JSON",
         data: data,
         success: function(updatedLink){
-          console.log(linkClass);
-          $('.read').toggle("style");
-          $('.unread').toggle("style");
+          $(".read").toggle("style");
+          $(".unread").toggle("style");
           $('input:checkbox').removeAttr('checked');
         },
         error: function(xhr) {

@@ -26,6 +26,8 @@
     <textarea class="form-control" id='search-box' rows="1"></textarea>
   </div>
 
+  <button class="btn btn-warning" id="sorted-listing">Sort Alphabetically</button>
+
 </div>
 
 
@@ -34,11 +36,11 @@
 <% @links.each do |link| %>
 <div id='<%= link.id%>' class='<%= link.read%>' >
 
-  <h4 class="unread">Mark As Read
+  <h4 class="unread" id= '<%= link.id%>' >Mark As Read
     <input type="checkbox" class="status-box" value="false"/>
   </h4>
 
-  <h4 class="read" style="display:none;">Mark As Unread
+  <h4 class="read" id= '<%= link.id%>' style="display:none;">Mark As Unread
     <input type="checkbox" class="status-box" value="true"/>
   </h4>
 
@@ -49,4 +51,7 @@
 </div>
 
 <% end %>
+</ul>
+
+<ul class="sorted-listing">
 </ul>
