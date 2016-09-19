@@ -3,12 +3,13 @@ require "rails_helper"
 feature "authenticated user edits link" do
   scenario "user sees updated link in index" do
     user = create(:user)
+    create_list(:link, 3, user_id: user.id)
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return( user )
-    create_list(:link, 3)
 
     visit links_path
 
-    within("#1") do
+    within("div#link1") do
       click_on "Edit"
     end
 
