@@ -5,7 +5,7 @@ class LinksController < ApplicationController
     user = current_user
     link = user.links.create(link_params)
     if link.save
-      flash[:success] = "Your updates have been saved."
+      flash[:success] = "Your link has been saved."
     else
       flash[:error] = link.errors.full_messages.join(", ")
     end
@@ -27,7 +27,7 @@ class LinksController < ApplicationController
       flash[:success] = "Your updates have been saved."
       redirect_to links_path
     else
-      flash.now[:error] = "Invalid. Try Again"
+      flash.now[:error] = @link.errors.full_messages.join(", ")
       render :edit
     end
   end
