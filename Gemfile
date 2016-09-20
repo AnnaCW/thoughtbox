@@ -26,6 +26,7 @@ gem 'responders'
 gem 'bcrypt'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem "validate_url"
+gem 'react-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

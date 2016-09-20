@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "authenticated user edits link" do
-  scenario "user sees updated link in index" do
+  scenario "user sees updated link in index", js: true do
     user = create(:user)
     create_list(:link, 3, user_id: user.id)
 
@@ -9,7 +9,7 @@ feature "authenticated user edits link" do
 
     visit links_path
 
-    within("div#link1") do
+    within("ul#link1") do
       click_on "Edit"
     end
 
