@@ -8,8 +8,9 @@ class Api::V1::LinksController < ApiBaseController
 
   def update
     link = Link.find(params[:id])
-    link.update(link_params)
-    render json: link
+    if link.update(link_params)
+      render json: link
+    end
   end
 
   private
