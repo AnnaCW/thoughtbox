@@ -1,4 +1,11 @@
+
 <h1>Edit Link</h1>
+
+<div class="alert">
+  <% flash.each do |type, message|  %>
+    <%= sanitize(message) %>
+  <% end  %>
+</div>
 
 <%= form_for(:link, url: link_path(@link), method: "patch") do |f| %>
   <%= f.label :title %>
