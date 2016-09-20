@@ -6,9 +6,17 @@ class Links extends React.Component {
     }
   }
 
+  handleUpdate(link) {
+    var links = this.state.links
+    var updated = links.filter( (ls) => { return ls.id != link.id });
+      updated.push(link);
+      this.setState( {links: updated });
+
+   }
+
   render() {
     var links = this.state.links.map( (link) => {
-      return <Link key={link.id} link={link} />
+      return <Link key={link.id} handleUpdate={this.handleUpdate.bind(this)} link={link} />
     })
     return(
       <div>{links}</div>
