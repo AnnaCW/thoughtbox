@@ -4,12 +4,12 @@ class LinksController < ApplicationController
   def create
     user = current_user
     link = user.links.create(link_params)
-
     if link.save
-      redirect_to links_path
+      flash[:success] = "Your updates have been saved."
     else
-      flash.now[:error] = "Invalid. Try Again"
+      flash.now[:error] = link.errors.full_messages.join(", ")
     end
+    redirect_to links_path
   end
 
   def index

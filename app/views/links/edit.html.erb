@@ -1,10 +1,10 @@
 <h1>Edit Link</h1>
 
-<%= form_for(:link, url: links_path) do |f| %>
+<%= form_for(:link, url: link_path(@link), method: "patch") do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, value: @link.title %>
   <%= f.label :url %>
-  <%= f.password_field :url %>
+  <%= f.text_field :url, value: @link.url %>
 
   <%= f.submit "Update" %>
 <% end %>

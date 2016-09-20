@@ -4,6 +4,10 @@
   <%= link_to "Sign Out", logout_path, method: :delete %>
 <% end %>
 
+
+<div><%= flash[:error] %></div>
+
+
 <div class="container">
   <h4>Submit New Link</h4>
 

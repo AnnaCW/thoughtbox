@@ -3,11 +3,20 @@ class Link extends React.Component {
     super(props);
   }
 
+  findNewStatus(currentStatus) {
+    if (currentStatus === true) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+
   updateStatus(event) {
-    var newStatus = $("#button" + this.props.link.id).data("target");
+    var currentStatus = this.props.link.read
+    var newStatus = this.findNewStatus(currentStatus);
     var linkId = this.props.link.id
     var data = {link: { read: newStatus} };
-    event.preventDefault();
 
     $.ajax({
         url: "/api/v1/links/" + linkId + ".json",
