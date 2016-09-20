@@ -10,8 +10,8 @@ class Link extends React.Component {
         <h4>Mark As Unread
           <input type="checkbox" className="status-box" ref="true"/>
         </h4>
-        <li>{this.props.link.title}</li>
-        <li>{this.props.link.url}</li>
+        <li className='title'>{this.props.link.title}</li>
+        <li className='url'>{this.props.link.url}</li>
         <li><a href={"links/" + this.props.link.id + "/edit"}>Edit</a></li>
       </ul>
       );
@@ -22,8 +22,8 @@ class Link extends React.Component {
         <h4>Mark As Read
           <input type="checkbox" className="status-box" ref="false"/>
         </h4>
-        <li>{this.props.link.title}</li>
-        <li>{this.props.link.url}</li>
+        <li className='title'>{this.props.link.title}</li>
+        <li className='url'>{this.props.link.url}</li>
         <li><a href={"links/" + this.props.link.id + "/edit"}>Edit</a></li>
       </ul>
       );
