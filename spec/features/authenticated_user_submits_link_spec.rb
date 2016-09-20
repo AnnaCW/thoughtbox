@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "authenticated user submits link" do
-  scenario "user sees all user's links on index load" do
+  scenario "user sees all user's links on index load", js: true do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return( user )
 
