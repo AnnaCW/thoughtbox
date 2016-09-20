@@ -8,7 +8,7 @@ feature "user sorts links" do
     linkA = create(:link, title: "a", user_id: user.id)
 
     user2 = create(:user, email: "other@gmail.com")
-    other_link = create(:link, user_id: user2.id)
+    other_link = create(:link, title: "no-no", user_id: user2.id)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return( user )
 
@@ -24,5 +24,8 @@ feature "user sorts links" do
     within("ul:last-child") do
       expect(page).to have_content("c")
     end
+
+    expect(page).to_not have_content("no-no")
+
   end
 end
