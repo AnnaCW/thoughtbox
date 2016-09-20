@@ -32,27 +32,5 @@
 
 <%= react_component 'Links', { links: @links } %>
 
-<ul class="links-listing">
-
-<% @links.each do |link| %>
-<div id='<%= link.id%>' class='<%= link.read%>' >
-
-  <h4 class="unread" id= '<%= link.id%>' >Mark As Read
-    <input type="checkbox" class="status-box" value="false"/>
-  </h4>
-
-  <h4 class="read" id= '<%= link.id%>' style="display:none;">Mark As Unread
-    <input type="checkbox" class="status-box" value="true"/>
-  </h4>
-
-  <li class="title"><%= link.title %></li>
-  <li><%= link.url %></li>
-
-  <li><%= link_to "Edit", edit_link_path(link) %></li>
-</div>
-
-<% end %>
-</ul>
-
 <ul class="sorted-listing">
 </ul>
