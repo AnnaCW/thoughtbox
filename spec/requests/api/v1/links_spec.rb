@@ -16,4 +16,25 @@ describe "Links Endpoint" do
     expect(parsed_response["read"]).to eq(false)
   end
 
+  it "returns sorted links" do
+    user = create(:user)
+    linkB = create(:link, title: "B", user_id: user.id)
+    linkC = create(:link, title: "c", user_id: user.id)
+    linkA = create(:link, title: "a", user_id: user.id)
+
+    user2 = create(:user, email: "other@gmail.com")
+    other_link = create(:link, user_id: user2.id)
+
+    get "/api/v1/links.json", params: {user_id: user.id}
+
+    expect(response).to be_success
+
+    parsed_response = JSON.parse(response.body)
+
+    expect(parsed_response.length).to eq(3)
+    expect(parsed_response.first['title']).to eq("a")
+    expect(parsed_response.last['title']).to eq("c")
+
+  end
+
 end
