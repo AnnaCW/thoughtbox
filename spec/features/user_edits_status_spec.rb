@@ -12,13 +12,8 @@ feature "user edits link status" do
 
     within("ul#link#{target_link.id}") do
       expect(page).to have_content("Mark As Read")
+      find("button#button#{target_link.id}")
     end
 
-    updated = target_link.update(read: "true")
-    expect(updated).to eq("")
-
-    # within("ul#link#{target_link.id}") do
-    #   expect(page).to have_content("Mark As Read")
-    # end
   end
 end
