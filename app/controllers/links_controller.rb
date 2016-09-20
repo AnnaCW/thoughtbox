@@ -7,7 +7,7 @@ class LinksController < ApplicationController
     if link.save
       flash[:success] = "Your updates have been saved."
     else
-      flash.now[:error] = link.errors.full_messages.join(", ")
+      flash[:error] = link.errors.full_messages.join(", ")
     end
     redirect_to links_path
   end
