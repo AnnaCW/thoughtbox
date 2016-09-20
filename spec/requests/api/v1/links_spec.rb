@@ -25,7 +25,9 @@ describe "Links Endpoint" do
     user2 = create(:user, email: "other@gmail.com")
     other_link = create(:link, user_id: user2.id)
 
-    get "/api/v1/links.json", params: {user_id: user.id}
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return( user )
+
+    get "/api/v1/links.json"
 
     expect(response).to be_success
 
