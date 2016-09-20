@@ -4,14 +4,17 @@ feature "authenticated user edits link" do
   scenario "user sees updated link in index", js: true do
     user = create(:user)
     create_list(:link, 3, user_id: user.id)
+    target_link = create(:link, user_id: user.id)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return( user )
 
     visit links_path
 
-    within("ul#link1") do
+    within("ul#link#{target_link.id}") do
       click_on "Edit"
     end
+
+    expect(current_path).to eq edit_link_path(target_link.id)
 
     expect(page).to have_content("Edit Link")
 
