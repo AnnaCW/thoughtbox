@@ -2,7 +2,8 @@ class Api::V1::LinksController < ApiBaseController
   respond_to :json
 
   def index
-    render json: Link.where(user_id: params[:user_id]).order('lower(title)')
+    user = current_user
+    render json: Link.where(user_id: user.id).order('lower(title)')
   end
 
   def update

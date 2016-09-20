@@ -11,7 +11,17 @@ class Links extends React.Component {
     var updated = links.filter( (ls) => { return ls.id != link.id });
       updated.push(link);
       this.setState( {links: updated });
+   }
 
+   sortLinks() {
+     $.ajax({
+         url: "/api/v1/links.json",
+         method: "GET",
+         success: (response) => {
+           console.log(response);
+           this.setState({links: response});
+         },
+      });
    }
 
   render() {
@@ -19,7 +29,10 @@ class Links extends React.Component {
       return <Link key={link.id} handleUpdate={this.handleUpdate.bind(this)} link={link} />
     })
     return(
-      <div>{links}</div>
+      <div>
+        <button onClick={this.sortLinks.bind(this)} className="btn btn-warning" id="sorted-listing">Sort Alphabetically</button>
+        <div>{links}</div>
+      </div>
     );
   }
 }
