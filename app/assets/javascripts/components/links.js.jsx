@@ -9,7 +9,7 @@ class Links extends React.Component {
   handleUpdate(link) {
     var links = this.state.links
     var updated = links.filter( (ls) => { return ls.id != link.id });
-      updated.push(link);
+      updated.unshift(link);
       this.setState( {links: updated });
    }
 

@@ -4,8 +4,11 @@
   <%= link_to "Sign Out", logout_path, method: :delete %>
 <% end %>
 
-
-<div><%= flash[:error] %></div>
+<div class="alert">
+  <% flash.each do |type, message|  %>
+    <%= sanitize(message) %>
+  <% end  %>
+</div>
 
 
 <div class="container">
